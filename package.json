@@ -24,8 +24,7 @@
     "dist/**/*"
   ],
   "scripts": {
-    "test:no-printer": "jest tests/instantiation.test.ts",
-    "test:all": "jest",
+    "test": "jest",
     "build": "tsc",
     "docs": "typedoc",
     "format": "prettier --write src/**/* && prettier --write tests/**/*",

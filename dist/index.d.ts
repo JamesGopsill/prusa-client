@@ -9,9 +9,5 @@ export declare class PrusaClient {
     readonly ip: string;
     readonly baseURL: string;
     constructor(ip: string);
-    getPrinter(): Promise<printer.GetPrinterResponse>;
-    getVersion(): Promise<printer.GetVersionResponse>;
-    getFiles(): Promise<printer.GetFilesResponse>;
-    getJob(): Promise<printer.GetJobResponse>;
-    postGCode(command: string): Promise<boolean>;
+    getTelemetry(): Promise<printer.GetTelemetryResponse>;
 }

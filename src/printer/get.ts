@@ -1,10 +1,12 @@
 import { get } from "../helpers"
-import {
-	GetFilesResponse,
-	GetJobResponse,
-	GetPrinterResponse,
-	GetVersionResponse,
-} from "./interfaces"
+import { GetTelemetryResponse } from "./interfaces"
+
+export const getTelemetry = (baseURL: string) => {
+	const url = `${baseURL}/api/telemetry`
+	return get<GetTelemetryResponse>(url)
+}
+
+/*
 
 export const getPrinter = (baseURL: string) => {
 	const url = `${baseURL}/api/printer`
@@ -25,3 +27,4 @@ export const getFiles = (baseURL: string) => {
 	const url = `${baseURL}/api/files`
 	return get<GetFilesResponse>(url)
 }
+*/

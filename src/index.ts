@@ -25,6 +25,16 @@ export class PrusaClient {
 		this.baseURL = `http://${ip}`
 	}
 
+	public getTelemetry() {
+		return printer.getTelemetry(this.baseURL)
+	}
+
+	/* Not implemented yet
+
+	public postGCode(command: string) {
+		return printer.postGCode(this.baseURL, command)
+	}
+	
 	public getPrinter() {
 		return printer.getPrinter(this.baseURL)
 	}
@@ -41,8 +51,6 @@ export class PrusaClient {
 		return printer.getJob(this.baseURL)
 	}
 	
-	public postGCode(command: string) {
-		return printer.postGCode(this.baseURL, command)
-	}
+	*/
 	
 }

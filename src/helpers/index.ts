@@ -30,34 +30,17 @@ export const get = <Type>(url: string, bodyArgs?: {}) => {
 	})
 }
 
-export const post = (
-	url: string,
-	expectedStatusCode: number,
-	bodyArgs?: {}
-) => {
+export const post = (url: string, expectedStatusCode: number, bodyArgs: {}) => {
 	return new Promise<boolean>(async (resolve, reject) => {
-		let res
-
-		if (typeof bodyArgs != "undefined") {
-			res = await fetch(url, {
-				method: "POST",
-				mode: "cors",
-				headers: {
-					"Content-Type": "application/json",
-					Accept: "application/json",
-				},
-				body: JSON.stringify(bodyArgs),
-			})
-		} else {
-			res = await fetch(url, {
-				method: "POST",
-				mode: "cors",
-				headers: {
-					"Content-Type": "application/json",
-					Accept: "application/json",
-				},
-			})
-		}
+		const res = await fetch(url, {
+			method: "POST",
+			mode: "cors",
+			headers: {
+				"Content-Type": "application/json",
+				//Accept: "application/json",
+			},
+			body: JSON.stringify(bodyArgs),
+		})
 
 		if (res.status == expectedStatusCode) resolve(true)
 		reject(res)

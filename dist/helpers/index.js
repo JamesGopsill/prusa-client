@@ -34,28 +34,15 @@ const get = (url, bodyArgs) => {
 exports.get = get;
 const post = (url, expectedStatusCode, bodyArgs) => {
     return new Promise(async (resolve, reject) => {
-        let res;
-        if (typeof bodyArgs != "undefined") {
-            res = await (0, cross_fetch_1.fetch)(url, {
-                method: "POST",
-                mode: "cors",
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                },
-                body: JSON.stringify(bodyArgs),
-            });
-        }
-        else {
-            res = await (0, cross_fetch_1.fetch)(url, {
-                method: "POST",
-                mode: "cors",
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                },
-            });
-        }
+        const res = await (0, cross_fetch_1.fetch)(url, {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+                //Accept: "application/json",
+            },
+            body: JSON.stringify(bodyArgs),
+        });
         if (res.status == expectedStatusCode)
             resolve(true);
         reject(res);

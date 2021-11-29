@@ -1,3 +1,13 @@
+export interface GetTelemetryResponse {
+	temp_nozzle: number
+	temp_bed: number
+	material: string
+	pos_z_mm: number
+	printing_speed: number
+	flow_factor: number
+}
+
+/*
 export interface GetPrinterResponse {
 	telemetry: {
 		material: string
@@ -83,3 +93,4 @@ export interface GetFilesResponse {
 	}
 	done: number
 }
+*/

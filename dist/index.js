@@ -44,20 +44,8 @@ class PrusaClient {
         this.ip = ip;
         this.baseURL = `http://${ip}`;
     }
-    getPrinter() {
-        return printer.getPrinter(this.baseURL);
-    }
-    getVersion() {
-        return printer.getVersion(this.baseURL);
-    }
-    getFiles() {
-        return printer.getFiles(this.baseURL);
-    }
-    getJob() {
-        return printer.getJob(this.baseURL);
-    }
-    postGCode(command) {
-        return printer.postGCode(this.baseURL, command);
+    getTelemetry() {
+        return printer.getTelemetry(this.baseURL);
     }
 }
 exports.PrusaClient = PrusaClient;

@@ -4,6 +4,21 @@ The client has been developed as part of a research programme investigating agen
 
 Please note. The Prusa Mini+ API is still under development and we will try and keep in line with their main branch.
 
+## Connecting the Prusa Mini+ to your home LAN
+
+We have a separate local lan for testing in the lab and we had trouble with the Prusa Mini+ picking up an IP address through DHCP (firmware 4.3.3). In order to connect to it the network, we had to set a static IP address on the machine. To do this, create an text file on a USB stick and title it `lan_settings.ini`. Within that file, add your LAN configuration (exclude the comments):
+
+```ini
+[lan_ip4]
+type=static
+hostname=PrusaMini # Name it what you like
+address=[IP_ADDRESS] # The address you will want to enter you in your browser
+subnet=[SUBNET_ADDRESS] # Usually 255.255.xxx.xxx, you can find this on your other devices connected to the network
+gateway=[IP_ADDRESS] # We did not need this
+```
+
+Plug the USB stick into your printer and go to the LAN settings menu and click `Load Settings`. The settings should then update with the IP address being the one you entered in the ini file.
+
 ## Using prusa-client
 
 To install the package, use the following code. I am aiming to put it onto npm soon.
