@@ -72,3 +72,5 @@ To donate and provide continued support, please go to **[TODO]**.
 ## References
 
 - [Prusa Firmware Buddy](https://github.com/prusa3d/Prusa-Firmware-Buddy)
+- [Reference structure for an API client](https://github.com/ilyamkin/dev-to-js)
+- [Typescript Mixins](https://www.typescriptlang.org/docs/handbook/mixins.html)

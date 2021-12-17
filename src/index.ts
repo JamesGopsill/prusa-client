@@ -1,56 +1,27 @@
-import isIp from "is-ip"
-import * as printer from "./printer"
+import { Base } from "./base"
+import { Get } from "./get"
 
-// Exporting all the interface alongside.
-export * from "./printer/interfaces"
+function applyMixins(derivedCtor: any, constructors: any[]) {
+	constructors.forEach((baseCtor) => {
+		Object.getOwnPropertyNames(baseCtor.prototype).forEach((name) => {
+			Object.defineProperty(
+				derivedCtor.prototype,
+				name,
+				Object.getOwnPropertyDescriptor(baseCtor.prototype, name) ||
+					Object.create(null)
+			)
+		})
+	})
+}
 
 /**
- * Prusae Client Class
+ * Inherits from all the other classes featuring the API calls to the Prusa.
  *
- * 
+ *
  */
-export class PrusaClient {
-	public readonly ip: string
-	public readonly baseURL: string
+class PrusaClient extends Base {}
+interface PrusaClient extends Get {}
+applyMixins(PrusaClient, [Get])
 
-	constructor(ip: string) {
-
-		// Perform some checks on initialisation
-
-		if (!isIp.v4(ip)) {
-			throw new TypeError("[PrusaClient] Invalid IP address")
-		}
-
-		this.ip = ip
-		this.baseURL = `http://${ip}`
-	}
-
-	public getTelemetry() {
-		return printer.getTelemetry(this.baseURL)
-	}
-
-	/* Not implemented yet
-
-	public postGCode(command: string) {
-		return printer.postGCode(this.baseURL, command)
-	}
-	
-	public getPrinter() {
-		return printer.getPrinter(this.baseURL)
-	}
-
-	public getVersion() {
-		return printer.getVersion(this.baseURL)
-	}
-
-	public getFiles() {
-		return printer.getFiles(this.baseURL)
-	}
-
-	public getJob() {
-		return printer.getJob(this.baseURL)
-	}
-	
-	*/
-	
-}
+export * from "./interfaces"
+export { PrusaClient as PrusaClient }

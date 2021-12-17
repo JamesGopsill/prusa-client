@@ -1,13 +1,13 @@
-import * as printer from "./printer";
-export * from "./printer/interfaces";
+import { Base } from "./base";
+import { Get } from "./get";
 /**
- * Prusae Client Class
+ * Inherits from all the other classes featuring the API calls to the Prusa.
  *
  *
  */
-export declare class PrusaClient {
-    readonly ip: string;
-    readonly baseURL: string;
-    constructor(ip: string);
-    getTelemetry(): Promise<printer.GetTelemetryResponse>;
+declare class PrusaClient extends Base {
 }
+interface PrusaClient extends Get {
+}
+export * from "./interfaces";
+export { PrusaClient as PrusaClient };
