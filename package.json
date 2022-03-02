@@ -1,5 +1,5 @@
 {
-  "name": "prusa-client",
+  "name": "@jamesgopill/prusa-client",
   "version": "0.1.0",
   "description": "Client for interacting with the Prusa API",
   "keywords": [
@@ -20,6 +20,9 @@
     "url": "https://github.com/JamesGopsill/prusa-client/issues"
   },
   "homepage": "https://jamesgopsill.github.io/prusa-client/",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "files": [
     "dist/**/*"
   ],
@@ -28,7 +31,7 @@
     "build": "tsc",
     "docs": "typedoc",
     "format": "prettier --write src/**/* && prettier --write tests/**/*",
-    "pre-add": "yarn format && yarn docs && node clean-dist.js && yarn tsc"
+    "pre-add": "yarn format && yarn docs && node utils/clean-dist.js && yarn tsc && node utils/clean-crlf.js"
   },
   "dependencies": {
     "cross-fetch": "^3.1.4",
