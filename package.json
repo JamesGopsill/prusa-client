@@ -1,5 +1,5 @@
 {
-  "name": "@jamesgopill/prusa-client",
+  "name": "@jamesgopsill/prusa-client",
   "version": "0.1.0",
   "description": "Client for interacting with the Prusa API",
   "keywords": [
