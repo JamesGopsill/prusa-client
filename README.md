@@ -77,6 +77,17 @@ export const printerIPAddress = "123.456.789.101"
 
 We would love to have additional contributors to the project to help us maintain and add functionality to the project.
 
+Before committing to the repository, please use 
+
+```yarn pre-add``` 
+
+This performs:
+
+- prettier to format the code 
+- typedoc to build the docs
+- tsc to build the dist 
+- CRLF to LF conversion
+
 ## Support the Project
 
 The project has been supported by the [EPSRC-funded Brokering Additive Manufacturing project (EP/V05113X/1)](https://gow.epsrc.ukri.org/NGBOViewGrant.aspx?GrantRef=EP/V05113X/1). More details on the project can be found at the [Design Manufacturing Futures Lab](https://dmf-lab.co.uk/) website.
